@@ -12,10 +12,10 @@ voltage = voltage*sign;
 
 for i = 1:length(bits)
     if(bits(i)==0)
-        y_level(x) = voltage;
+        y_level(x) = -voltage;
         y_level(x + 1) = 0;
     else
-        y_level(x) = -voltage;
+        y_level(x) = +voltage;
         y_level(x + 1) = 0;
     end
     x = x + 2;
