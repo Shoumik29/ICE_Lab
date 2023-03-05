@@ -66,7 +66,7 @@ for i = 1:length(time)
             ans_bits(st)=0;
           else
             ans_bits(st)=1;
-            tmp = -tmp; %middle a trasition ghotlo
+            tmp = -tmp;
           end
           st = st + 1;
       end
