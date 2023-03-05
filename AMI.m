@@ -1,4 +1,6 @@
-clear;
+clc;
+clear all;
+close all;
 
 bits = [1,0,0,1,1,1,0,1,0,1,1,1];
 
@@ -33,7 +35,7 @@ for i = 1:length(time)
 end
 
 
-plot(time,y_value);
+plot(time,y_value,'linewidth',1);
 axis([0 Time -voltage-2 voltage+2]);
 grid on;
 

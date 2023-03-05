@@ -29,7 +29,7 @@ end
 
 voltage=tmp;
 Time=length(bits)/bit_rate;
-frequency = 200;
+frequency = 1000;
 period = 1/(frequency*bit_rate);
 time = 0:period:Time;
 x = 1;
@@ -42,22 +42,28 @@ for i = 1:length(time)
 end
 
 
-plot(time,y_value);
+plot(time,y_value,'linewidth',2);
 axis([0 Time -voltage-2 voltage+2]);
 grid on;
 
 % demodulation need to be done
 
-in=1;
-for j=1:length(time)
-  tmp = y_value(j)/voltage;
-  if time(j)*bit_rate>=in
-      if tmp==0
-        ans_bits(in)=0;
+x = 1;
+for i = 1:length(time)
+  tmp = y_value(i)/voltage;
+  if time(i)*bit_rate >= x
+      if x == 1
+        if tmp == 0
+          ans_bits(x) = 0;
+          prev = tmp;
       else
-        ans_bits(in)=1;
+        if prev == tmp
+          ans_bits(x) = 0;
+        else
+          ans_bits(x) = 1;
+        end
       end
-      in=in+1;
+      x = x + 1;
   end
  end
 
