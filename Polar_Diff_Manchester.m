@@ -18,12 +18,11 @@ for i = 1:length(bits)
   if(bits(i)==0)
     y_level(x) = -prev;
     y_level(x + 1) = -y_level(x);
-    prev = y_level(x + 1);
   else
     y_level(x) = prev;
     y_level(x + 1) = -y_level(x);
-    prev = y_level(x + 1);
   end
+  prev = y_level(x + 1);
   x = x + 2;
 end
 
